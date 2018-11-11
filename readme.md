@@ -41,11 +41,13 @@ Register
 
 - Create a stream for the current registered user in this format then subscribe it:
 	- stream id/name: md5(<address>)
-		items:
-			# key: name
-			# value: <name>
-			# key: email
-			# value: <email>
+		
+        items:
+        
+			- key: name
+			- value: <name>
+			- key: email
+			- value: <email>
     
 Login
 - Get the input email and check if it exist in tblUser
