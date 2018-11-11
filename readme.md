@@ -28,7 +28,7 @@ Run the command:
 ```
 
 
-Flow:
+## Flow
 Register
 - Generate the key value pair for the user
 - Add the new the value pair in the tlbGeneral stream in this format:
