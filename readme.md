@@ -32,15 +32,15 @@ Run the command:
 Register
 - Generate the key value pair for the user
 - Add the new the value pair in the tlbGeneral stream in this format:
-	- key: <address>
-	- value: md5(<address>)
+	- key: [address]
+	- value: md5([address])
 
 - Add the registered user in the tblUser stream in this format:
-	- key: <email>
-	- value: <address> <---- encrypt it with AES, the secret key is the password
+	- key: [email]
+	- value: [address] <---- encrypt it with AES, the secret key is the password
 
 - Create a stream for the current registered user in this format then subscribe it:
-	- stream id/name: md5(<address>)
+	- stream id/name: md5([address])
 		
         items:
         
