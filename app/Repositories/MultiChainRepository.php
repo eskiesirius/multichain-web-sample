@@ -44,6 +44,30 @@ class MultiChainRepository implements MultiChainInterface
     /**
      * {@inheritdoc}
      */
+    public function getStreams($streamName = "*", $verbose = false, $count = null)
+    {
+        return MultiChain::listStreams($streamName, $verbose, $count);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getStreamItems($streamName, $verbose = false, $count = 10)
+    {
+        return MultiChain::listStreamItems($streamName,$verbose, $count);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getStreamItemByKey($streamName,$key,$verbose = false,$count = 10)
+    {
+        return MultiChain::listStreamKeyItems($streamName,$key,$verbose,$count);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
     public function createUser(array $data)
     {
         //Create a key pair for the registered user
@@ -55,9 +79,9 @@ class MultiChainRepository implements MultiChainInterface
         $this->createStreamItem($this->generalTable,$address,$hashedAddress);
 
         //Add the registered user to the tblUser
-        $this->createStreamItem($this->userTable,$data['email'],aes_encrypt($data['password'],$address));
+        $this->createStreamItem($this->userTable,$data['email'],aes_encrypt($address,$data['password']));
 
-        //Create stream for the registered user
+        //Create stream and items for the registered user
         $this->createStream($hashedAddress,true);
         $this->subscribeStream($hashedAddress);
         $this->createStreamItem($hashedAddress,'email',$data['email']);
@@ -72,5 +96,21 @@ class MultiChainRepository implements MultiChainInterface
     public function createKeyPairs($count=1)
     {
         return MultiChain::createKeypairs($count);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getUserCredentialByEmail($email)
+    {
+        return $this->getStreamItemByKey($this->userTable,$email);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getUserStreamIdByAddress($address)
+    {
+        return $this->getStreamItemByKey($this->generalTable,$address);
     }
 }

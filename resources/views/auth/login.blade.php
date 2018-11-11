@@ -11,11 +11,22 @@
                     <form method="POST" action="{{ route('login') }}" enctype="multipart/form-data">
                         @csrf
 
+                        @if ($errors->any())
+                            <div class="alert alert-danger">{{$errors->first()}}</div>
+                        @endif
                         <div class="form-group row">
                             <label for="email" class="col-sm-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
 
                             <div class="col-md-6">
-                                <input type="file" name="wallet">
+                                <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="password" class="col-sm-4 col-form-label text-md-right">{{ __('Password') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="password" type="password" class="form-control" name="password" required>
                             </div>
                         </div>
 

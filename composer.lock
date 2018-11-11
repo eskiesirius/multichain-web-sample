@@ -314,16 +314,16 @@
         },
         {
             "name": "eskie/laravel-multichain-api",
-            "version": "v1.0.5",
+            "version": "v1.0.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/eskiesirius/laravel-multichain-api.git",
-                "reference": "ea744f962d956254fe18beece62f3b3dfaea9e8d"
+                "reference": "fca0f7284c94ee2d7744aa3fa57bf45e94344156"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/eskiesirius/laravel-multichain-api/zipball/ea744f962d956254fe18beece62f3b3dfaea9e8d",
-                "reference": "ea744f962d956254fe18beece62f3b3dfaea9e8d",
+                "url": "https://api.github.com/repos/eskiesirius/laravel-multichain-api/zipball/fca0f7284c94ee2d7744aa3fa57bf45e94344156",
+                "reference": "fca0f7284c94ee2d7744aa3fa57bf45e94344156",
                 "shasum": ""
             },
             "require": {
@@ -341,7 +341,7 @@
                         "Eskie\\Multichain\\MultiChainServiceProvider"
                     ],
                     "aliases": {
-                        "Multichain": "Eskie\\Multichain\\Facades\\MultiChain"
+                        "MultiChain": "Eskie\\Multichain\\Facades\\MultiChain"
                     }
                 }
             },
@@ -364,7 +364,7 @@
                 "laravel",
                 "multichain"
             ],
-            "time": "2018-11-09T07:50:15+00:00"
+            "time": "2018-11-11T20:00:05+00:00"
         },
         {
             "name": "fguillot/json-rpc",
